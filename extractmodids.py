@@ -30,7 +30,7 @@ if len(sys.argv) > 1:
     print("======== Sorted Modkit list ========")
     print(modkits)
 
-    with open(sys.argv[1] + '\\modkits.csv', 'w', newline='') as csvfile:
+    with open(sys.argv[1] + '/modkits.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
         previous_item = ["", ""]
