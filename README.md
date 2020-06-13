@@ -4,4 +4,5 @@ Tool for extracting modkits from resources in a Fivem install, showing you clash
 
 To use:
 
+sudo pip3 install -r requirements.txt
 python3 extractmodids.py <(path to resource folder)>
