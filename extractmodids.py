@@ -54,8 +54,9 @@ if len(sys.argv) > 1:
                     writer.writerow([modkit_binary] + [item[0]] + [item[1]] +[item[2]]+ ["--- DUPLICATE"] )
                 else:
                     writer.writerow([modkit_binary] + [item[0]] + [item[1]]+[item[2]])
+                    i += 1
                 previous_item = item
-                i += 1
+
 
     print("======== Removing duplicate entries (not clashing entries) ========")
     Duplicates = set([x for x in binary_list if binary_list.count(x) > 1])
