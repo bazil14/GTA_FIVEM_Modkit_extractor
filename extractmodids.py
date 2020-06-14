@@ -48,7 +48,7 @@ if len(sys.argv) > 1:
                             writer.writerow([modkit_binary] + [i])
                             i +=1
                 numStr = bin(int(item[0]))[2:]
-                modkit_binary = numStr.zfill(30)
+                modkit_binary = numStr.zfill(20)
                 binary_list.append(modkit_binary[-11:])
                 if item[0] == previous_item[0]:
                     writer.writerow([modkit_binary] + [item[0]] + [item[1]] + ["--- DUPLICATE"])
