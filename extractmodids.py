@@ -34,10 +34,19 @@ if len(sys.argv) > 1:
         writer = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
         previous_item = ["", ""]
+        i = 0
         for item in modkits:
             if item[1] == previous_item[1]:
                 pass
             else:
+                if i <= 1000:
+                    if item[0] != i:
+                        min = i
+                        for x in range(min, item[0]):
+                            numStr = bin(int(i))[2:]
+                            modkit_binary = numStr.zfill(20)
+                            writer.writerow([modkit_binary] + [i])
+                            i +=1
                 numStr = bin(int(item[0]))[2:]
                 modkit_binary = numStr.zfill(30)
                 binary_list.append(modkit_binary[-11:])
@@ -46,6 +55,7 @@ if len(sys.argv) > 1:
                 else:
                     writer.writerow([modkit_binary] + [item[0]] + [item[1]])
                 previous_item = item
+                i += 1
 
     print("======== Removing duplicate entries (not clashing entries) ========")
     Duplicates = set([x for x in binary_list if binary_list.count(x) > 1])
