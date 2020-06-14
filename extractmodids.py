@@ -24,7 +24,7 @@ if len(sys.argv) > 1:
                 id = int((id_list[index].get("value")))
                 mod = (kitnames[index].text)
 
-                modkits.append([id, mod])
+                modkits.append([id, mod,file])
 
     modkits = sorted(modkits, key=lambda x: x[0])
     print("======== Sorted Modkit list ========")
@@ -51,9 +51,9 @@ if len(sys.argv) > 1:
                 modkit_binary = numStr.zfill(20)
                 binary_list.append(modkit_binary[-11:])
                 if item[0] == previous_item[0]:
-                    writer.writerow([modkit_binary] + [item[0]] + [item[1]] + ["--- DUPLICATE"])
+                    writer.writerow([modkit_binary] + [item[0]] + [item[1]] +[item[2]]+ ["--- DUPLICATE"] )
                 else:
-                    writer.writerow([modkit_binary] + [item[0]] + [item[1]])
+                    writer.writerow([modkit_binary] + [item[0]] + [item[1]]+[item[2]])
                 previous_item = item
                 i += 1
 
